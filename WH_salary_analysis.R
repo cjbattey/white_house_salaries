@@ -72,8 +72,6 @@ test_table <- ddply(wh,.(President),function(e){#nonparametric rank-based test (
 })
 names(test_table) <- c("President","p","Median Difference","CI_0.05","CI_0.95")
 test_table$Year <- c(1993,2004,2015,2017)
-test_table$CI_low <- test_table$`Median Difference`-test_table$CI_0.05
-test_table$CI_high <- test_table$`Median Difference`+test_table$CI_0.95
 
 ddply(wh,.(President),function(e){ #t-test version for those who prefer means
   ttest <- t.test(subset(e,Gender=="male")$Salary,subset(e,Gender=="female")$Salary)
